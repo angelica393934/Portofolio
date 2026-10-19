@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 244 252 249; --surface: 255 255 255; --ink: 11 31 77; --muted: 59 82 128;
+  --brand: 30 58 138; --onbrand: 255 255 255; --hl: 214 245 227; --hr: 220 238 252;
+}
+.dark {
+  --bg: 6 20 43; --surface: 13 35 71; --ink: 232 243 255; --muted: 169 190 220;
+  --brand: 125 211 252; --onbrand: 6 20 43; --hl: 11 59 58; --hr: 12 42 92;
+}
+html { scroll-behavior: smooth; }
+body { background: rgb(var(--bg)); color: rgb(var(--ink)); transition: background .4s, color .4s; }
+.grid-bg {
+  background-image:
+    linear-gradient(to right, rgb(var(--ink) / .06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(var(--ink) / .06) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse at 50% 30%, #000 30%, transparent 75%);
+}
+:focus-visible { outline: 2px solid rgb(var(--brand)); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
