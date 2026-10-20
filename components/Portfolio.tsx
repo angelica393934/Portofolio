@@ -6,11 +6,11 @@ import { useLang } from "@/lib/useLang";
 import { profile, skills, projects, experience, certs, slugOf, t } from "@/data/content";
 import FloatingNav from "./FloatingNav";
 import { Photo } from "./Photo";
+import DevScene from "./DevScene";
+import SkillIcon from "./SkillIcon";
 
 const ids = ["about", "skills", "projects", "experience", "contact"];
 const strip = ["App Design", "Website Development", "Mobile Development", "Database", "UI/UX"];
-const chips = ["Flutter", "Firebase", "Laravel", "Figma"];
-const code = ["class Home extends StatelessWidget {", "  Widget build(ctx) {", "    return Scaffold(", "      body: Hero(),  // hello", "    );", "  }", "}"];
 const groupColor = ["from-blue-400 to-blue-600", "from-emerald-400 to-teal-600", "from-sky-400 to-blue-500", "from-teal-300 to-emerald-500"];
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -44,30 +44,6 @@ function Section({ id, title, children, className = "" }: { id: string; title: s
         {children}
       </div>
     </section>
-  );
-}
-
-function PhoneCode() {
-  return (
-    <div className="relative mx-auto h-[420px] w-[250px] animate-float">
-      <div className="absolute inset-0 rounded-[36px] border-[6px] border-navy-900 bg-navy-900 shadow-2xl shadow-sky-400/40 dark:border-sky-200/30 dark:bg-slate-900">
-        <div className="h-full overflow-hidden rounded-[28px] bg-gradient-to-b from-emerald-200 via-white to-sky-200 p-4 dark:from-emerald-900 dark:via-slate-900 dark:to-blue-950">
-          <div className="mx-auto mb-4 h-1.5 w-14 rounded-full bg-navy-900/80 dark:bg-white/40" />
-          <pre className="font-mono text-[10.5px] leading-5 text-navy-800 dark:text-sky-200">
-            {code.map((line, i) => (
-              <motion.div key={i} initial={{ opacity: 0, x: -8 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.5 + i * 0.35 }}>{line}</motion.div>
-            ))}
-            <span className="inline-block h-3 w-1.5 animate-blink bg-navy-800 align-middle dark:bg-sky-200" />
-          </pre>
-          <div className="mt-5 space-y-2"><div className="h-14 rounded-2xl bg-white/80 shadow dark:bg-white/10" /><div className="h-14 rounded-2xl bg-white/60 shadow dark:bg-white/5" /></div>
-        </div>
-      </div>
-      {chips.map((chip, i) => (
-        <motion.span key={chip} animate={{ y: [0, -10, 0] }} transition={{ repeat: Infinity, duration: 4 + i, delay: i * 0.5 }}
-          className="absolute rounded-full border border-line bg-surface px-3 py-1 font-mono text-xs shadow-md"
-          style={{ top: `${[8, 30, 62, 84][i]}%`, [i % 2 ? "right" : "left"]: "-56px" }}>{chip}</motion.span>
-      ))}
-    </div>
   );
 }
 
@@ -206,9 +182,9 @@ export default function Portfolio() {
         </div>
       </Section>
 
-      {/* KEAHLIAN + ponsel */}
+      {/* KEAHLIAN + laptop & ponsel */}
       <Section id="skills" title={c.skillsT} className="bg-gradient-to-b from-transparent via-emerald-200/30 to-transparent dark:via-emerald-900/20">
-        <div className="grid items-center gap-16 lg:grid-cols-[1.3fr_1fr]">
+        <div className="grid gap-16 lg:grid-cols-[1.1fr_1fr] lg:items-start">
           <div className="space-y-8">
             {skills.map((g, gi) => (
               <Reveal key={g.group.en} delay={gi * 0.08}>
@@ -217,7 +193,7 @@ export default function Portfolio() {
                   {g.items.map((it, k) => (
                     <motion.div key={it} initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: k * 0.07, type: "spring", stiffness: 200, damping: 16 }}
                       whileHover={{ y: -8 }} className="flex w-28 flex-col items-center gap-3 rounded-[2.2rem] border border-line bg-surface/80 px-3 py-5 shadow-sm backdrop-blur">
-                      <span className={`grid h-14 w-14 place-items-center rounded-full bg-gradient-to-br ${groupColor[gi % 4]} text-lg font-extrabold text-white shadow-lg`}>{it.slice(0, 2)}</span>
+                      <SkillIcon name={it} color={groupColor[gi % 4]} />
                       <span className="text-center text-sm font-semibold leading-tight">{it}</span>
                     </motion.div>
                   ))}
@@ -225,7 +201,7 @@ export default function Portfolio() {
               </Reveal>
             ))}
           </div>
-          <Reveal className="px-14"><PhoneCode /></Reveal>
+          <Reveal className="lg:-mt-10"><DevScene /></Reveal>
         </div>
       </Section>
 
@@ -304,7 +280,6 @@ export default function Portfolio() {
             <div className="relative mt-8 flex flex-wrap gap-3 text-navy-900">
               <a href={`mailto:${profile.email}`} className="rounded-full bg-white px-6 py-3 font-semibold transition hover:-translate-y-0.5">{c.email}</a>
               <a href={profile.linkedin} target="_blank" rel="noreferrer" className="rounded-full bg-white/90 px-6 py-3 font-semibold transition hover:-translate-y-0.5">LinkedIn</a>
-              <a href={profile.oldPortfolio} target="_blank" rel="noreferrer" className="rounded-full bg-white/90 px-6 py-3 font-semibold transition hover:-translate-y-0.5">{c.old}</a>
             </div>
           </div>
         </Reveal>

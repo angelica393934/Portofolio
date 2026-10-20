@@ -5,16 +5,38 @@ export const profile = {
   name: "Angelica Regina Irvan",
   email: "angelicareginairvan16@gmail.com",
   linkedin: "https://www.linkedin.com/in/angelicareginairvan/",
-  oldPortfolio: "https://angelicari-portfolio.my.canva.site/angelica-r-i-indonesia-portofolio",
   // ✏️ Opsional: tambah github: "https://github.com/username-kamu"
 };
 
 export const skills: { group: L; items: string[] }[] = [
-  { group: { id: "Mobile", en: "Mobile" }, items: ["Flutter", "Android Studio", "Firebase"] },
-  { group: { id: "Web", en: "Web" }, items: ["HTML", "CSS", "JavaScript", "PHP", "Laravel", "Bootstrap"] },
+  { group: { id: "Mobile", en: "Mobile" }, items: ["Flutter", "Kotlin", "Java"] },
+  { group: { id: "Web", en: "Web" }, items: ["HTML", "JavaScript", "TypeScript", "PHP", ] },
   { group: { id: "Database", en: "Database" }, items: ["MySQL", "Oracle SQL"] },
-  { group: { id: "Desain", en: "Design" }, items: ["Figma", "Canva", "Adobe Illustrator", "CapCut"] },
+  { group: { id: "Desain", en: "Design" }, items: ["Figma", "Canva", "Adobe Illustrator",] },
 ];
+
+const dev = (n: string, v = "original") =>
+  `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${n}/${n}-${v}.svg`;
+const si = (n: string) => `https://cdn.simpleicons.org/${n}`;
+
+export const skillIcons: Record<string, string> = {
+  Kotlin: dev("kotlin"),
+  "Jetpack Compose": si("jetpackcompose"),
+  Flutter: dev("flutter"),
+  Firebase: dev("firebase"),
+  HTML: dev("html5"),
+  CSS: dev("css3"),
+  JavaScript: dev("javascript"),
+  PHP: dev("php"),
+  Laravel: dev("laravel"),
+  Bootstrap: dev("bootstrap"),
+  MySQL: dev("mysql"),
+  "Oracle SQL": dev("oracle"),
+  Figma: dev("figma"),
+  Canva: dev("canva"),
+  "Adobe Illustrator": dev("illustrator", "plain"),
+  CapCut: si("capcut"),
+};
 
 export type Project = {
   title: string;

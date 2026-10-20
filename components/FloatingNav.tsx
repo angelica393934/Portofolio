@@ -16,16 +16,28 @@ export default function FloatingNav({ lang, onLang, links, back }: Props) {
       className="fixed inset-x-0 top-3 z-50 px-3 md:top-5">
       <nav className="relative mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-4 gap-y-2 overflow-hidden rounded-3xl border border-line bg-surface/70 px-3 py-2 shadow-lg shadow-sky-500/10 backdrop-blur-xl md:rounded-full md:px-4">
         <Link href="/" className="flex items-center gap-2 font-bold">
-          <Avatar /><span>Angelica<span className="text-sky-500">.dev</span></span>
+          <Avatar /><span>Angelicari<span className="text-sky-500">.dev</span></span>
         </Link>
         {links ? (
-          <ul className="order-last flex w-full gap-1 overflow-x-auto text-sm md:order-none md:w-auto">
+          <ul className="order-last flex w-full items-center gap-1 overflow-x-auto overflow-y-hidden text-sm md:absolute md:left-1/2 md:top-1/2 md:order-none md:w-auto md:-translate-x-1/2 md:-translate-y-1/2">
             {links.map((l) => (
-              <li key={l.href}><a href={l.href} className="whitespace-nowrap rounded-full px-3 py-1.5 text-muted transition hover:bg-sky-400/15 hover:text-ink">{l.label}</a></li>
+              <li key={l.href}>
+                <a
+                  href={l.href}
+                  className="whitespace-nowrap rounded-full px-3 py-1.5 text-muted transition hover:bg-sky-400/15 hover:text-ink"
+                >
+                  {l.label}
+                </a>
+              </li>
             ))}
           </ul>
         ) : back ? (
-          <Link href={back.href} className="rounded-full px-3 py-1.5 text-sm font-medium text-brand hover:bg-sky-400/15">{back.label}</Link>
+          <Link
+            href={back.href}
+            className="rounded-full px-3 py-1.5 text-sm font-medium text-brand hover:bg-sky-400/15"
+          >
+            {back.label}
+          </Link>
         ) : null}
         <div className="flex items-center gap-2">
           <div className="flex rounded-full border border-line p-0.5 text-xs font-semibold" role="group" aria-label="Language">
