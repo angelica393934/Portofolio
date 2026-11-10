@@ -20,22 +20,18 @@ const dev = (n: string, v = "original") =>
 const si = (n: string) => `https://cdn.simpleicons.org/${n}`;
 
 export const skillIcons: Record<string, string> = {
-  Kotlin: dev("kotlin"),
-  "Jetpack Compose": si("jetpackcompose"),
   Flutter: dev("flutter"),
-  Firebase: dev("firebase"),
+  Kotlin: dev("kotlin"),
+  Java: dev("java"),
   HTML: dev("html5"),
-  CSS: dev("css3"),
   JavaScript: dev("javascript"),
+  TypeScript: dev("typescript"),
   PHP: dev("php"),
-  Laravel: dev("laravel"),
-  Bootstrap: dev("bootstrap"),
   MySQL: dev("mysql"),
   "Oracle SQL": dev("oracle"),
   Figma: dev("figma"),
   Canva: dev("canva"),
   "Adobe Illustrator": dev("illustrator", "plain"),
-  CapCut: si("capcut"),
 };
 
 export type Project = {

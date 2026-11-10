@@ -16,7 +16,7 @@ const laptopCode = [
 const sceneChips = [
   { name: "Kotlin", l: 0, t: 290 },
   { name: "Flutter", l: 100, t: 340 },
-  { name: "Firebase", l: 6, t: 390 },
+  { name: "Java", l: 6, t: 390 },
   { name: "Figma", l: 120, t: 428 },
 ];
 
@@ -67,14 +67,16 @@ function LaptopCode() {
 // Laptop + HP jadi satu adegan
 export default function DevScene() {
   return (
-    <div className="relative mx-auto h-[470px] w-[480px] origin-top scale-[0.72] sm:scale-100 -mb-32 sm:mb-0">
-      <div className="absolute left-0 top-0"><LaptopCode /></div>
-      <div className="absolute bottom-0 right-0"><PhoneCode /></div>
-      {sceneChips.map((c, i) => (
-        <motion.span key={c.name} animate={{ y: [0, -10, 0] }} transition={{ repeat: Infinity, duration: 4 + i, delay: i * 0.5 }}
-          className="absolute rounded-full border border-line bg-surface px-3 py-1 font-mono text-xs shadow-md"
-          style={{ left: c.l, top: c.t }}>{c.name}</motion.span>
-      ))}
+    <div className="relative mx-auto h-[292px] w-[298px] min-[400px]:h-[338px] min-[400px]:w-[346px] sm:h-[470px] sm:w-[480px]">
+      <div className="absolute left-0 top-0 h-[470px] w-[480px] origin-top-left scale-[0.62] min-[400px]:scale-[0.72] sm:scale-100">
+        <div className="absolute left-0 top-0"><LaptopCode /></div>
+        <div className="absolute bottom-0 right-0"><PhoneCode /></div>
+        {sceneChips.map((c, i) => (
+          <motion.span key={c.name} animate={{ y: [0, -10, 0] }} transition={{ repeat: Infinity, duration: 4 + i, delay: i * 0.5 }}
+            className="absolute rounded-full border border-line bg-surface px-3 py-1 font-mono text-xs shadow-md"
+            style={{ left: c.l, top: c.t }}>{c.name}</motion.span>
+        ))}
+      </div>
     </div>
   );
 }
