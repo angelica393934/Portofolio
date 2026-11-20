@@ -8,6 +8,7 @@ import FloatingNav from "./FloatingNav";
 import { Photo } from "./Photo";
 import DevScene from "./DevScene";
 import SkillIcon from "./SkillIcon";
+import ProjectCard from "./ProjectCard";
 
 const ids = ["about", "skills", "projects", "experience", "contact"];
 const strip = ["App Design", "Website Development", "Mobile Development", "Database"];
@@ -209,27 +210,8 @@ export default function Portfolio() {
       <Section id="projects" title={c.projectsT}>
       <div className="grid gap-8 md:grid-cols-2">
         {projects.map((p, i) => (
-          <Reveal key={p.title} delay={(i % 2) * 0.1}>
-            <Link href={`/projects/${slugOf(p)}`} className="group flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-surface shadow-sm transition duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-sky-400/25">
-              {/* Slot gambar proyek: rasio 4:3 */}
-              <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-emerald-200 via-teal-200 to-sky-300 dark:from-emerald-900 dark:via-teal-900 dark:to-blue-900">
-                {p.image ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src={p.image} alt={p.title} className="h-full w-full object-cover transition duration-700 group-hover:scale-110" />
-                ) : (
-                  <span className="absolute inset-0 grid place-items-center text-8xl font-black text-white/50" aria-hidden>{String(i + 1).padStart(2, "0")}</span>
-                )}
-              </div>
-              <div className="flex flex-1 flex-col p-6 md:p-8">
-                <h3 className="text-xl font-bold md:text-2xl">{p.title}</h3>
-                <p className="mt-3 flex-1 text-base leading-relaxed text-muted">{p.desc[lang]}</p>
-                <div className="mt-5 flex flex-wrap items-center gap-2">
-                  {p.tags.map((tag) => <span key={tag} className="rounded-full bg-sky-400/15 px-3 py-1 font-mono text-sm">{tag}</span>)}
-                </div>
-                <span className="mt-5 inline-flex items-center gap-2 font-semibold text-brand">{c.view}
-                  <span className="grid h-7 w-7 place-items-center rounded-full bg-brand text-onbrand transition group-hover:translate-x-1" aria-hidden>→</span></span>
-              </div>
-            </Link>
+          <Reveal key={p.title} delay={(i % 3) * 0.1}>
+            <ProjectCard p={p} i={i} lang={lang} view={c.view} />
           </Reveal>
         ))}
       </div>
