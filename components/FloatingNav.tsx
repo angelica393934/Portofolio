@@ -53,3 +53,4 @@ export default function FloatingNav({ lang, onLang, links, back }: Props) {
     </motion.header>
   );
 }
+

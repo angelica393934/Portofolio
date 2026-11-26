@@ -68,7 +68,7 @@ export const projects: Project[] = [
       id: "Aplikasi mobile banking Bank Sumsel Babel yang dibangun native dengan Kotlin dan Jetpack Compose. Sudah masuk tahap production dengan fitur login, transfer, dan mutasi rekening.",
       en: "A Bank Sumsel Babel mobile banking app built natively with Kotlin and Jetpack Compose. Already in production with login, transfer, and account statement features.",
     },
-    tags: ["Kotlin", "Jetpack Compose", "Mobile"],
+    tags: ["Mobile", "Kotlin", "Jetpack Compose", "android", "firebase" ],
     features: [
       { id: "Login yang aman", en: "Secure login" },
       { id: "Transfer antar rekening", en: "Account transfers" },
@@ -79,7 +79,7 @@ export const projects: Project[] = [
     // ✏️ Aktifkan baris di bawah satu per satu setelah filenya ada di public/projects/new-bsb/
     image: "/projects/new-bsb/cover.png",
     shots: ["/projects/new-bsb/shot-1.png", "/projects/new-bsb/shot-2.png", "/projects/new-bsb/shot-3.png", "/projects/new-bsb/shot-4.png"],
-    youtube: "https://youtu.be/hTY4CcDYsi4?si=ds6QGK8VMul93PWU",
+    youtube: "hTY4CcDYsi4",
   },
   {
     title: "Catatan dan Analisis Kinerja Pegawai",
@@ -88,7 +88,7 @@ export const projects: Project[] = [
       id: "Platform digital untuk mencatat, menganalisis, dan memantau kinerja pegawai, lengkap dengan backoffice untuk admin cabang.",
       en: "A digital platform for recording, analyzing, and monitoring employee performance, with a backoffice for branch admins.",
     },
-    tags: ["Backend", "Website", "Backoffice"],
+    tags: ["Website", "Backend", "Backoffice"],
     features: [
       { id: "Dashboard ringkasan kinerja per kantor cabang", en: "Performance summary dashboard per branch office" },
       { id: "Form aspek penilaian dengan sub-aspek dan poin indikator", en: "Evaluation aspect forms with sub-aspects and indicator points" },
@@ -102,10 +102,10 @@ export const projects: Project[] = [
     title: "Helpdesk Track – Sistem ETL & Dashboard Monitoring",
     slug: "track-etl",
     desc: {
-      id: "Program yang mengambil data tiket helpdesk dari sebuah API, membersihkannya, lalu menampilkannya di dashboard web berisi grafik, peringkat petugas, dan lainnya.",
+      id: "Program yang mengambil data tiket helpdesk dari API, membersihkannya, lalu menampilkannya di dashboard web berisi grafik, peringkat petugas, dan lainnya.",
       en: "A program that pulls helpdesk ticket data from an API, cleans it, and shows it on a web dashboard with charts, agent rankings, and more.",
     },
-    tags: ["Python", "HTML", "ETL"],
+    tags: ["Python", "ETL", "HTML", "Dashboard", ],
     features: [
       { id: "Mengambil data tiket helpdesk dari API", en: "Pulls helpdesk ticket data from an API" },
       { id: "Pembersihan dan transformasi data (ETL)", en: "Data cleaning and transformation (ETL)" },
@@ -113,7 +113,8 @@ export const projects: Project[] = [
       { id: "Peringkat kinerja petugas", en: "Agent performance ranking" },
     ],
     image: "/projects/track-etl/cover.png",
-    // shots: ["/projects/track-etl/shot-1.png", "/projects/track-etl/shot-2.png", "/projects/track-etl/shot-3.png"],
+    shots: ["/projects/track-etl/shot-1.png", "/projects/track-etl/shot-2.png", "/projects/track-etl/shot-3.png"],
+    youtube: "9WwjHwy5ib4"
   },
   {
     title: "Redesign Aplikasi Mobile Banking",
@@ -122,7 +123,7 @@ export const projects: Project[] = [
       id: "Mendesain ulang fitur dan UI/UX aplikasi mobile perbankan dengan Flutter sesuai kebutuhan bisnis, termasuk debugging, testing, dan optimasi.",
       en: "Redesigned features and UI/UX of a mobile banking app in Flutter to match business needs, including debugging, testing, and optimization.",
     },
-    tags: ["Flutter", "UI/UX", "Mobile"],
+    tags: [ "Mobile", "Flutter", "BLoC State Management"],
     features: [
       { id: "Redesign beranda dan menu utama", en: "Redesigned home and main menu" },
       { id: "Alur login dan transaksi lebih sederhana", en: "Simpler login and transaction flow" },
@@ -131,7 +132,18 @@ export const projects: Project[] = [
     ],
     shotsVariant: "mobile",
     image: "/projects/redesign-mobile-banking/cover.png",
-    // shots: ["/projects/redesign-mobile-banking/shot-1.png", "/projects/redesign-mobile-banking/shot-2.png", "/projects/redesign-mobile-banking/shot-3.png"],
+    shots: ["/projects/redesign-mobile-banking/shot-1.png", "/projects/redesign-mobile-banking/shot-2.png", "/projects/redesign-mobile-banking/shot-3.png"],
+  },
+    {
+    title: "Arsip SK Piutang Pajak (BAPENDA)",
+    slug: "arsip-sk-bapenda",
+    desc: {
+      id: "Aplikasi web pengarsipan SK penghapusan dan pengurangan piutang pajak; membantu digitalisasi lebih dari 100 arsip.",
+      en: "Web app for archiving tax receivable write-off decrees; helped digitize 100+ archives.",
+    },
+    tags: ["Web", "PHP", "MySQL"],
+    image: "/projects/arsip-sk-bapenda/cover.png",
+
   },
   {
     title: "Sistem Informasi KPU (Mobile)",
@@ -140,18 +152,10 @@ export const projects: Project[] = [
       id: "Sistem informasi KPU berbasis aplikasi mobile.",
       en: "A mobile-based information system for KPU (election commission).",
     },
-    tags: ["Android", "Firebase"],
+    tags: ["Java", "Mobile", "Android",],
     shotsVariant: "mobile",
   },
-  {
-    title: "Arsip SK Piutang Pajak (BAPENDA)",
-    slug: "arsip-sk-bapenda",
-    desc: {
-      id: "Aplikasi web pengarsipan SK penghapusan dan pengurangan piutang pajak; membantu digitalisasi lebih dari 100 arsip.",
-      en: "Web app for archiving tax receivable write-off decrees; helped digitize 100+ archives.",
-    },
-    tags: ["Web", "PHP", "MySQL"],
-  },
+
   {
     title: "Pendaftaran SMK Jalur Prestasi",
     slug: "pendaftaran-smk",

@@ -47,7 +47,7 @@ export default function ProjectDetail({ slug }: { slug: string }) {
 
         <motion.div initial={{ opacity: 0, scale: 0.94 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.1 }} className="mx-auto w-full max-w-[580px] md:ml-auto md:mr-0">
           {/* tanpa kotak/garis batas: gambar utuh di atas bulatan gradasi lembut */}
-          <ProjectArt src={cover} alt={p.title} index={i} clip={false} pad="p-2" />
+          <ProjectArt src={cover} alt={p.title} index={i} clip={false} pad="p-0" />
         </motion.div>
       </section>
 
